@@ -102,8 +102,6 @@ def extract_links(html_string, url):
             endindex = line.rfind('"')
             if endindex > startindex:
                 links.append(abs_url + line[startindex:endindex] + " ")
-                # links.append(
-                #     "http://people.scs.carleton.ca/~davidmckenney/tinyfruits/" + line[startindex:endindex] + ' ')
     return ''.join(links)
 
 
