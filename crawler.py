@@ -15,7 +15,6 @@ def create_directory(directory_name, url, URLtonum, numtoURL):
     precwd = os.getcwd()
     os.makedirs(directory_name)
 
-    # with open(os.path.join('crawl_data', f'{directory_number}')):
     os.chdir(directory_name)
 
     os.makedirs('tf')
@@ -237,8 +236,6 @@ def calculate_page_ranks(num_urls, URLtonum):
 
 
 def crawl(seed):
-    start = time.time()
-
     precwd = os.getcwd()
     URLtonum = {}
     numtoURL = {}
@@ -309,8 +306,7 @@ def crawl(seed):
 
     calculate_page_ranks(number_URL_visited, URLtonum)
 
-    end = time.time()
-    print(f"Crawler function took {end - start} seconds to run")
     os.chdir(precwd)
 
     return number_URL_visited
+

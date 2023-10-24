@@ -1,7 +1,36 @@
 import math
+import os
 
-from searchdata import get_idf, get_tf_idf, get_url_list, get_page_rank, get_title
+from searchdata import get_idf, get_tf_idf, get_page_rank, get_title
 
+def get_url_list():
+    list = []
+    with open(os.path.join(os.getcwd(), 'crawl_data', 'url_map.txt'), 'r') as file:
+        for line in file:
+            list.append(line.strip('\n').split(',')[0])
+    return list
+
+def return_top10(cosines):
+    cosines = sorted(cosines.items(), reverse=True)
+    clist = []
+    for entry in cosines:
+        for cosine in entry[1]:
+            dict = {}
+            dict['url'] = cosine
+            dict['title'] = get_title(cosine)
+            dict['score'] = entry[0]
+
+            clist.append(dict)
+
+    final_list = []
+    index = 0
+    for url in clist:
+
+        if index >= 10:
+            return list
+        final_list.append(url)
+        index += 1
+    return final_list
 
 def search(phrase, boost):
     url_list = get_url_list()
@@ -72,24 +101,3 @@ def search(phrase, boost):
     return return_top10(cosines)
 
 
-def return_top10(cosines):
-    cosines = sorted(cosines.items(), reverse=True)
-    clist = []
-    for entry in cosines:
-        for cosine in entry[1]:
-            dict = {}
-            dict['url'] = cosine
-            dict['title'] = get_title(cosine)
-            dict['score'] = entry[0]
-
-            clist.append(dict)
-
-    final_list = []
-    index = 0
-    for url in clist:
-
-        if index >= 10:
-            return list
-        final_list.append(url)
-        index += 1
-    return final_list

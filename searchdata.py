@@ -74,10 +74,3 @@ def get_tf_idf(url, word):
     except:
         return 0
 
-
-def get_url_list():
-    list = []
-    with open(os.path.join(os.getcwd(), 'crawl_data', 'url_map.txt'), 'r') as file:
-        for line in file:
-            list.append(line.strip('\n').split(',')[0])
-    return list
