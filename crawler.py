@@ -10,8 +10,6 @@ def create_directory(directory_name, url, URLtonum, numtoURL):
     URLtonum[url] = directory_name
     numtoURL[directory_name] = url
 
-    directory_number = str(directory_name)  # convert int to str
-
     precwd = os.getcwd()
     os.makedirs(directory_name)
 
@@ -27,7 +25,6 @@ def create_directory(directory_name, url, URLtonum, numtoURL):
     file.close()
 
     os.chdir(precwd)
-
     return URLtonum, numtoURL
 
 
@@ -175,8 +172,8 @@ def calculate_tf_idfs(num_urls, word_in_url_freqs):
 
 
 def calculate_page_ranks(num_urls, URLtonum):
-    # creating the adjacency matrix
 
+    # creating the adjacency matrix
     matrix = []
     for url_num in range(num_urls):
         precwd = os.getcwd()
@@ -240,14 +237,13 @@ def crawl(seed):
     URLtonum = {}
     numtoURL = {}
     visited_url = {}
-    queue = []  # queue for crawling URLs
+    queue = []
     word_in_url_freqs = {}
     number_URL_visited = 0
     directory_name = 0
 
     if os.path.exists('crawl_data'):  # we delete the pre-existing data
         os.chdir('crawl_data')
-
         i = 0
         while True:
             if os.path.isdir(f'{i}'):
