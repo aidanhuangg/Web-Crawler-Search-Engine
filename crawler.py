@@ -306,3 +306,7 @@ def crawl(seed):
 
     return number_URL_visited
 
+with open('search-results.txt', 'w') as file:
+    crawl(input('Enter seed url: '))
+    file.write('Crawling Complete.')
+

@@ -3,12 +3,14 @@ import os
 
 from searchdata import get_idf, get_tf_idf, get_page_rank, get_title
 
+
 def get_url_list():
     list = []
     with open(os.path.join(os.getcwd(), 'crawl_data', 'url_map.txt'), 'r') as file:
         for line in file:
             list.append(line.strip('\n').split(',')[0])
     return list
+
 
 def return_top10(cosines):
     cosines = sorted(cosines.items(), reverse=True)
@@ -31,6 +33,7 @@ def return_top10(cosines):
         final_list.append(url)
         index += 1
     return final_list
+
 
 def search(phrase, boost):
     url_list = get_url_list()
@@ -59,7 +62,6 @@ def search(phrase, boost):
 
     sumq = math.sqrt(sumq)
 
-
     for url in url_list:
         dqueryVector = []
 
@@ -74,7 +76,6 @@ def search(phrase, boost):
         denominator = sumq * sumd
         for i in range(len(dqueryVector)):
             numerator += qqueryVector[i] * dqueryVector[i]
-
 
         if denominator == 0.0:
             if denominator in cosines:
@@ -101,3 +102,6 @@ def search(phrase, boost):
     return return_top10(cosines)
 
 
+with open('search-results.txt', 'w') as file:
+    results = search(input('Enter phrase: '), input('Boost "True" or "False": '))
+    file.write(str(results))
