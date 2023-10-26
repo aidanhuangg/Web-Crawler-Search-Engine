@@ -5,7 +5,7 @@
 This project is implemented with search engine algorithms and computations to provide the user with a list of ranked webpages based on a query input. These algorithms and computations include:
 - PageRank Algorithm
 - Vector Space Model and Cosine Similarity
-- Term frequencies and Inverse Document Frequencies
+- Term Frequencies and Inverse Document Frequencies
 
 A PDF report of the project is included, detailing the program design, time complexities, and space complexities. 
 
