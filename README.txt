@@ -1,4 +1,4 @@
-** Web Crawler and Search Engine Program **
+**Web Crawler and Search Engine Program**
 Name: Aidan Huang
 
 After downloading and extracting the zip file, enter 'cd downloads' into the command line/terminal and then enter 'cd project-master'.
