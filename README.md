@@ -2,7 +2,7 @@
 
 ### Created by: Aidan Huang
 
-This project is implemented with search engine algorithms and computations to provide the user with a list of ranked webpages based on a query input. These algorithms and computations include:
+This project is implemented with search engine algorithms and computations to provide the user with a list of ranked webpages based on a query input. These include:
 - PageRank Algorithm
 - Vector Space Model and Cosine Similarity
 - Term Frequencies and Inverse Document Frequencies
