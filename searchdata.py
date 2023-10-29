@@ -46,7 +46,7 @@ def get_page_rank(url):
         with open(os.path.join(os.getcwd(), 'crawl_data', f'{URLtonum[url]}', 'page_rank.txt'), 'r') as file:
             return float(file.read().strip())
     except:
-        return None
+        return -1
 
 
 def get_idf(word):
