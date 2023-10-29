@@ -29,7 +29,7 @@ def return_top10(cosines):
     for url in clist:
 
         if index >= 10:
-            return list
+            return final_list
         final_list.append(url)
         index += 1
     return final_list
